@@ -1,0 +1,21 @@
+
+  <h1><%= 'プロフィール' %></h1>
+  
+  <div class="field">
+    <%= '郵便番号' %>:
+    <%= @user&.postal_code %>
+  </div>
+
+  <div class="field">
+    <%= '住所' %>:
+    <%= @user&.address %>
+  </div>
+  <div class="field">
+    <%= '自己紹介' %>:
+    <%= @user&.self_introduction %>
+  </div>
+
+  <div class="field">
+    <%= link_to '編集する', controller: :profiles, action: :edit %>
+  </div>
+
