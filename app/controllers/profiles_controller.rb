@@ -11,8 +11,11 @@ class ProfilesController < ApplicationController
 
   def update
     @user = current_user
-    @user.update(profile_params)
-    redirect_to controller: :profiles, action: :show
+    if @user.update(profile_params)
+      redirect_to controller: :profiles, action: :show
+    else
+      render :edit
+    end
   end
 
   private
