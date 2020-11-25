@@ -1,0 +1,9 @@
+<h2>フォロー中</h2>
+<ul>
+  <% @following.each do |t| %>
+    <li>
+      <%= image_tag t.avatar.variant(resize_to_fill: [30, 30])%>
+      <%= t.name %>
+    </li>
+  <% end%>
+</ul>

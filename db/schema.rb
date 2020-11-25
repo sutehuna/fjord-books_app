@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_093119) do
     t.integer "target_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["subscriber_id", "target_id"], name: "index_followings_on_subscriber_id_and_target_id", unique: true
     t.index ["subscriber_id"], name: "index_followings_on_subscriber_id"
     t.index ["target_id"], name: "index_followings_on_target_id"
   end
@@ -71,6 +72,4 @@ ActiveRecord::Schema.define(version: 2020_11_25_093119) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "followings", "subscribers"
-  add_foreign_key "followings", "targets"
 end

@@ -34,7 +34,14 @@
     <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
   <% end %>
 </p>
-
+<% if current_user.id != params[:id].to_i %>
+  <% if @already_followed %>
+    <%= button_to 'フォロー解除', {controller: 'users', action: 'unfollow'}, {method: :delete, params: {id: params[:id]}} %>
+  <% else %>
+    <%= button_to 'フォロー', {controller: 'users', action: 'follow', method: :post, params: {id: params[:id]}} %>
+  <% end %>
+<% end %>
+<%= link_to 'フォロー一覧', "/users/#{@user.id}/following" %>
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
