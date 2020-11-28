@@ -1,24 +1,23 @@
   <h1>プロフィール</h1>
   
   <div class="field">
-    <%= '郵便番号' %>:
+    
+    <%= User.human_attribute_name(:postal_code) %>:
     <%= @user.postal_code %>
   </div>
 
   <div class="field">
-    <%= '住所' %>:
+    <%= User.human_attribute_name(:address) %>:
     <%= @user.address %>
   </div>
   <div class="field">
-    <%= '自己紹介' %>:
+    <%= User.human_attribute_name(:self_introduction) %>:
     <%= @user.self_introduction %>
   </div>
 
   <% if current_user.id == @user.id %>
-  <% puts "current #{current_user.id}" %>
-  <% puts "user #{@user.id}" %>
     <div class="field">
-      <%= link_to '編集する', edit_profile_path %>
+      <%= link_to t('views.common.edit'), edit_profile_path %>
     </div>
   <% end %>
 
