@@ -18,8 +18,9 @@
     <% end %>
     <p class="navbar-text">
       <% if user_signed_in? %>
-        <%= link_to 'Books', '/' , class: 'navbar-link' %> |
-        <%= link_to 'Show profile', '/profiles/show' , class: 'navbar-link' %> |
+        <%= link_to 'Books', books_path , class: 'navbar-link' %> |
+        <%= link_to 'Users', profiles_path , class: 'navbar-link' %> |
+        <%= link_to 'Show profile', "/profiles/#{current_user.id}" , class: 'navbar-link' %> |
         Logged in as <strong><%= current_user.email %></strong>.
         <%= link_to 'Edit setting', edit_user_registration_path, class: 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'navbar-link'  %>
