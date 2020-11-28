@@ -12,9 +12,6 @@
   </thead>
 
   <tbody>
-    <% puts @reports[0].id.class %>
-    <% puts current_user.id.class %>
-
     <% @reports.each do |report| %>
       <tr>
         <td><%= report.user_id %></td>
