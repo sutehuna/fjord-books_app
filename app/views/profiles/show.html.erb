@@ -1,7 +1,6 @@
   <h1>プロフィール</h1>
   
   <div class="field">
-    
     <%= User.human_attribute_name(:postal_code) %>:
     <%= @user.postal_code %>
   </div>
@@ -15,9 +14,9 @@
     <%= @user.self_introduction %>
   </div>
 
-  <% if current_user.id == @user.id %>
+  <% if current_user == @user %>
     <div class="field">
-      <%= link_to t('views.common.edit'), edit_profile_path %>
+      <%= link_to t('views.common.edit'), edit_user_registration_path %>
     </div>
   <% end %>
 
