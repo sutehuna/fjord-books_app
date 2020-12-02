@@ -1,5 +1,4 @@
 <p id="notice"><%= notice %></p>
-
 <h1><%= t('views.common.title_show', name: User.model_name.human) %></h1>
 
 <p>
@@ -34,14 +33,15 @@
     <%= image_tag @user.avatar.variant(resize_to_fill: [150, 150])%>
   <% end %>
 </p>
+<%= link_to 'フォロー一覧', "/users/#{params[:id]}/followings" %>
 <% if current_user.id != params[:id].to_i %>
   <% if @already_followed %>
-    <%= button_to 'フォロー解除', {controller: 'users', action: 'unfollow'}, {method: :delete, params: {id: params[:id]}} %>
+    <%= button_to 'フォロー解除', "/users/#{current_user.id}/followings/#{params[:id]}" , {method: :delete} %>
   <% else %>
-    <%= button_to 'フォロー', {controller: 'users', action: 'follow', method: :post, params: {id: params[:id]}} %>
+    <%= button_to 'フォロー', "/users/#{current_user.id}/followings", {method: :post, params: {target_id: params[:id]}} %>
   <% end %>
 <% end %>
-<%= link_to 'フォロー一覧', "/users/#{@user.id}/following" %>
+
 <% if current_user == @user %>
   <%= link_to t('views.common.edit'), edit_user_registration_path %> |
 <% end %>
