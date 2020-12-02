@@ -5,5 +5,5 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  validates :postal_code, format: { with: /\A\d+\z/}, allow_nil: true
+  validates :postal_code, format: { with: /\A\d+\z/ }, allow_nil: true
 end
