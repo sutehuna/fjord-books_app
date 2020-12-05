@@ -2,8 +2,7 @@
 
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = current_user.id
+    @comment = current_user.comments.new(comment_params)
     if @comment.save!
       redirect_back(fallback_location: '/', notice: t('controllers.common.notice_create', name: Comment.model_name.human))
     else
