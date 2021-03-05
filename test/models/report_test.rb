@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  test "#editable?" do
+  test '#editable?' do
     alice = User.create!(email: 'alice@example.com', password: 'password')
     bob = User.create!(email: 'bob@example.com', password: 'password')
     report = Report.create!(user_id: alice.id, title: 'title1', content: 'content1')
@@ -12,7 +12,7 @@ class ReportTest < ActiveSupport::TestCase
     assert_not report.editable?(bob)
   end
 
-  test "#created_on" do
+  test '#created_on' do
     alice = User.create!(email: 'alice@example.com', password: 'password')
     report = Report.create!(user_id: alice.id, title: 'title1', content: 'content1')
 

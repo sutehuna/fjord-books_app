@@ -1,9 +1,9 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-
-
-  test "#following?" do
+  test '#following?' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
 
@@ -12,7 +12,7 @@ class UserTest < ActiveSupport::TestCase
     assert me.following?(she)
   end
 
-  test "#followed_by" do
+  test '#followed_by' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
 
@@ -21,7 +21,7 @@ class UserTest < ActiveSupport::TestCase
     assert she.followed_by?(me)
   end
 
-  test "#follow" do
+  test '#follow' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
 
@@ -30,7 +30,7 @@ class UserTest < ActiveSupport::TestCase
     assert me.following?(she)
   end
 
-  test "#unfollow" do
+  test '#unfollow' do
     me = User.create!(email: 'me@example.com', password: 'password')
     she = User.create!(email: 'she@example.com', password: 'password')
 
@@ -41,7 +41,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not me.following?(she)
   end
 
-  test "#name_or_email" do
+  test '#name_or_email' do
     user = User.new(email: 'hoge@example.com')
     assert_equal 'hoge@example.com', user.name_or_email
   end
